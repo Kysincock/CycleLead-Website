@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | CycleLead</title>
+  <meta name="description" content="CycleLead is a performance-based database reactivation agency. Learn about our mission and why plain-text email works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #ffffff;
+      --bg2:         #f8fafc;
+      --bg3:         #f1f5f9;
+      --border:      #e2e8f0;
+      --green:       #16a34a;
+      --green-dim:   #15803d;
+      --green-light: #dcfce7;
+      --green-mid:   #bbf7d0;
+      --text:        #0f172a;
+      --muted:       #64748b;
+      --max:         1100px;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; max-width: var(--max); margin: 0 auto; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; font-weight: 600 !important; font-size: 0.875rem !important; padding: 9px 20px; border-radius: 7px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--green-dim) !important; }
+
+    /* ── SHARED ── */
+    section { padding: 72px 40px; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -0.4px; color: var(--text); margin-bottom: 16px; }
+
+    .btn-primary { display: inline-block; background: var(--green); color: #fff; font-weight: 700; font-size: 0.95rem; padding: 13px 26px; border-radius: 8px; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
+
+    /* ── PAGE HERO ── */
+    .page-hero { max-width: var(--max); margin: 0 auto; padding: 72px 40px 56px; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; line-height: 1.15; max-width: 620px; margin-bottom: 16px; }
+    .page-hero h1 span { color: var(--green); }
+    .page-hero p { font-size: 1.05rem; color: var(--muted); max-width: 520px; }
+
+    /* ── MISSION ── */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .mission-text p { font-size: 0.98rem; color: var(--muted); margin-bottom: 16px; line-height: 1.75; }
+    .mission-text p strong { color: var(--text); }
+    .stat-stack { display: flex; flex-direction: column; gap: 16px; }
+    .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; }
+    .stat-card .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 6px; }
+    .stat-card .stat-label { font-size: 0.875rem; color: var(--muted); }
+    .stat-card .stat-label strong { color: var(--text); }
+
+    /* ── FOUNDER ── */
+    .founder-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .founder-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
+    .founder-avatar { width: 110px; height: 110px; border-radius: 14px; background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 2.6rem; flex-shrink: 0; }
+    .founder-name { font-size: 1.35rem; font-weight: 800; margin-bottom: 3px; }
+    .founder-title { font-size: 0.875rem; color: var(--green); font-weight: 600; margin-bottom: 18px; }
+    .founder-bio p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+    .founder-bio p strong { color: var(--text); }
+
+    /* ── WHY IT WORKS ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 36px; }
+    .why-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 26px 22px; transition: box-shadow 0.2s; }
+    .why-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .why-icon { font-size: 1.4rem; margin-bottom: 12px; }
+    .why-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .why-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── VALUES ── */
+    .values-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .values-list { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); margin-top: 32px; }
+    .value-row { display: grid; grid-template-columns: 190px 1fr; gap: 28px; padding: 26px 28px; border-bottom: 1px solid var(--border); align-items: start; }
+    .value-row:last-child { border-bottom: none; }
+    .value-name { font-size: 0.875rem; font-weight: 700; color: var(--green); padding-top: 1px; }
+    .value-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+    .value-desc strong { color: var(--text); }
+
+    /* ── CTA ── */
+    .cta-banner { background: var(--text); padding: 96px 40px; text-align: center; }
+    .cta-banner .section-inner { max-width: 580px; }
+    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.5px; color: #fff; margin-bottom: 14px; }
+    .cta-banner h2 span { color: var(--green); }
+    .cta-banner p { color: #94a3b8; margin-bottom: 32px; font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 28px 40px; background: var(--bg); }
+    .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 52px 20px 40px; }
+      section { padding: 56px 20px; }
+      .mission-grid { grid-template-columns: 1fr; gap: 36px; }
+      .founder-grid { grid-template-columns: 1fr; }
+      .value-row { grid-template-columns: 1fr; gap: 6px; }
+      footer { padding: 24px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="34" height="34" rx="9" fill="#16a34a"/>
+          <path d="M24 13C22.5 10.4 19.9 8.7 17 8.7C12.4 8.7 8.7 12.4 8.7 17C8.7 21.6 12.4 25.3 17 25.3C21.6 25.3 25.3 21.6 25.3 17" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M21.5 8.5L25.5 12.5L21 13.5" fill="white"/>
+        </svg>
+        CycleLead
+      </a>
+      <div class="nav-links">
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#who">Who It's For</a>
+        <a href="about.html">About</a>
+        <a href="mailto:kyle@cyclelead.com" class="nav-cta">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">About CycleLead</p>
+    <h1>We Help Small Businesses<br/><span>Recover What's Already Theirs</span></h1>
+    <p>CycleLead was built on a simple idea: most small businesses are already sitting on the revenue they need. It's just buried in an old spreadsheet nobody's touched in two years.</p>
+  </div>
+
+  <!-- MISSION -->
+  <section>
+    <div class="section-inner">
+      <div class="mission-grid">
+        <div class="mission-text">
+          <p class="section-label">Our Mission</p>
+          <h2 class="section-title">Stop Chasing Strangers.<br/>Start Recovering Relationships.</h2>
+          <p>Every small business owner knows the feeling — you're constantly spending money trying to find new customers while a list of people who already trusted you once sits completely untouched.</p>
+          <p>That list isn't dead. Those people just haven't heard from you. <strong>CycleLead exists to close that gap</strong> — with a lean, proven process that turns dormant contacts into real booked appointments.</p>
+          <p>We don't run ads. We don't do cold outreach to strangers. We work entirely with data your business already owns, and we do it on a performance model because <strong>we only win when you win.</strong></p>
+        </div>
+        <div class="stat-stack">
+          <div class="stat-card">
+            <div class="stat-num">$0</div>
+            <div class="stat-label"><strong>Upfront cost to you.</strong> Our fee is a percentage of closed revenue only.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">15%</div>
+            <div class="stat-label"><strong>Performance fee</strong> on completed appointments that generated revenue.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">30 days</div>
+            <div class="stat-label"><strong>Standard campaign length.</strong> You'll have real data on results within a month.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <div class="section-inner">
+      <p class="section-label">The Founder</p>
+      <div class="founder-grid">
+        <div class="founder-avatar">👤</div>
+        <div>
+          <div class="founder-name">Kyle Sincock</div>
+          <div class="founder-title">Founder, CycleLead LLC</div>
+          <div class="founder-bio">
+            <p>I started CycleLead because I kept seeing the same problem with small businesses: they were pouring money into ads and lead generation while completely ignoring the most valuable asset they already had — a list of people who had already shown interest.</p>
+            <p><strong>The fix isn't complicated.</strong> A short, personal email — written like it came from the owner, not a marketing department — sent to the right people at the right time. No graphics, no unsubscribe banners, no corporate tone. Just a real message that reminds someone why they liked this business in the first place.</p>
+            <p>I built CycleLead around a performance model because I believe in the work. If I'm not recovering revenue for you, I shouldn't be getting paid. It's that simple.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT WORKS -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Why It Works</p>
+      <h2 class="section-title">The Plain-Text Advantage</h2>
+      <p style="color: var(--muted); max-width: 520px; font-size: 0.98rem;">Corporate-looking email blasts get ignored. Personal-looking emails get read. Here's why our approach consistently outperforms traditional email marketing.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">📬</div>
+          <h3>Inbox Placement</h3>
+          <p>Plain-text emails avoid the Promotions tab and spam filters that catch HTML marketing blasts. They land in the primary inbox — where people actually read.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3>Warm Relationships</h3>
+          <p>These aren't cold strangers. They've already interacted with your business. A familiar name in their inbox has a completely different effect than an ad.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">✍️</div>
+          <h3>Written in Your Voice</h3>
+          <p>Every email reads like it came directly from the business owner — casual, specific, human. Readers don't feel marketed to. They feel like someone remembered them.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h3>Micro-Segmentation</h3>
+          <p>We group contacts by behavior and send targeted copy to each segment — past customers and old inquiries get completely different angles and messaging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="section-inner">
+      <p class="section-label">How We Operate</p>
+      <h2 class="section-title">A Few Things We Won't Compromise On</h2>
+      <div class="values-list">
+        <div class="value-row">
+          <div class="value-name">Deliverability First</div>
+          <div class="value-desc">We never send a single email before the list is cleaned and the sending infrastructure is properly authenticated. <strong>Protecting your domain reputation is non-negotiable.</strong></div>
+        </div>
+        <div class="value-row">
+          <div class="value-name">Full Transparency</div>
+          <div class="value-desc">You see every lead we generate. At the end of the campaign, we go through the numbers together and agree on what closed. <strong>No black box, no guessing.</strong></div>
+        </div>
+        <div class="value-row">
+          <div class="value-name">Your Data Stays Yours</div>
+          <div class="value-desc">We never sell, share, or retain your customer data beyond the campaign window. <strong>Everything is handled under a signed agreement</strong> before we touch anything.</div>
+        </div>
+        <div class="value-row">
+          <div class="value-name">Performance Only</div>
+          <div class="value-desc">No retainers. No setup fees. <strong>Our fee is 15% of what we actually close for you</strong> — and only after it closes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="section-inner">
+      <h2>Think your list is<br/><span>worth reactivating?</span></h2>
+      <p>Send us an email. We'll give you an honest read on your list size and what's realistically recoverable — no commitment required.</p>
+      <a href="mailto:kyle@cyclelead.com" class="btn-primary">Reach Out — kyle@cyclelead.com</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo" style="font-size:1rem;">
+        <svg width="26" height="26" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#16a34a"/><path d="M24 13C22.5 10.4 19.9 8.7 17 8.7C12.4 8.7 8.7 12.4 8.7 17C8.7 21.6 12.4 25.3 17 25.3C21.6 25.3 25.3 21.6 25.3 17" stroke="white" stroke-width="2.4" stroke-linecap="round"/><path d="M21.5 8.5L25.5 12.5L21 13.5" fill="white"/></svg>
+        CycleLead
+      </a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="about.html">About</a>
+        <a href="mailto:kyle@cyclelead.com">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 CycleLead LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

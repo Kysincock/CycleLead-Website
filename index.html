@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CycleLead | Recover Revenue From Your Old Customer List</title>
-  <meta name="description" content="CycleLead helps small service businesses turn dormant customer lists into booked appointments. 100% performance-based — you only pay when we close revenue for you." />
+  <meta name="description" content="CycleLead helps small service businesses turn dormant customer lists into booked appointments. Performance-based — you only pay when we close revenue for you." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,6 +18,7 @@
       --border:      #e2e8f0;
       --green:       #16a34a;
       --green-dim:   #15803d;
+      --green-dark:  #052e16;
       --green-light: #dcfce7;
       --green-mid:   #bbf7d0;
       --text:        #0f172a;
@@ -29,83 +30,109 @@
     a { color: inherit; text-decoration: none; }
 
     /* ── NAV ── */
-    header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+    header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.96); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
     nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; max-width: var(--max); margin: 0 auto; }
-
     .logo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
-    .logo-icon { flex-shrink: 0; }
-
     .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; font-weight: 500; }
+    .nav-links a { font-size: 0.9rem; color: var(--muted); font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta { background: var(--green) !important; color: #fff !important; font-weight: 600 !important; font-size: 0.875rem !important; padding: 9px 20px; border-radius: 7px; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--green-dim) !important; }
 
-    /* ── HERO ── */
-    .hero { max-width: var(--max); margin: 0 auto; padding: 96px 40px 80px; text-align: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); border: 1px solid var(--green-mid); color: var(--green-dim); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
-    .hero-badge::before { content: ""; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.12; letter-spacing: -1.5px; max-width: 800px; margin: 0 auto 22px; color: var(--text); }
-    .hero h1 span { color: var(--green); }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin: 0 auto 40px; }
-    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
+    /* ── BUTTONS ── */
     .btn-primary { display: inline-block; background: var(--green); color: #fff; font-weight: 700; font-size: 0.95rem; padding: 13px 26px; border-radius: 8px; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
     .btn-secondary { display: inline-block; background: transparent; border: 1.5px solid var(--border); color: var(--muted); font-weight: 600; font-size: 0.95rem; padding: 13px 26px; border-radius: 8px; transition: border-color 0.2s, color 0.2s; }
-    .btn-secondary:hover { border-color: var(--muted); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--green); color: var(--green); }
 
-    /* ── SECTIONS ── */
-    section { padding: 80px 40px; }
+    /* ── SHARED ── */
+    section { padding: 88px 40px; }
     .section-inner { max-width: var(--max); margin: 0 auto; }
     .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
     .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; color: var(--text); margin-bottom: 14px; }
-    .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; }
 
-    /* ── PROBLEM STRIP ── */
-    .problem-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .problem-strip .section-inner { text-align: center; }
-    .problem-strip .section-title { max-width: 660px; margin: 0 auto 14px; }
-    .problem-strip .section-sub { margin: 0 auto; }
+    /* ── HERO ── */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 96px 40px 88px; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); border: 1px solid var(--green-mid); color: var(--green-dim); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
+    .hero-badge::before { content: ""; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -2px; max-width: 820px; margin: 0 auto 22px; }
+    .hero h1 span { color: var(--green); }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── PROBLEM ── */
+    .problem-section { background: var(--green-dark); padding: 88px 40px; }
+    .problem-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .problem-section .section-label { color: rgba(187,247,208,0.7); }
+    .problem-left h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; letter-spacing: -0.75px; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+    .problem-left p { color: #86efac; font-size: 1rem; line-height: 1.75; }
+    .problem-right { display: flex; flex-direction: column; gap: 14px; }
+    .problem-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 22px; }
+    .problem-card .p-num { font-size: 1.8rem; font-weight: 900; color: #4ade80; line-height: 1; margin-bottom: 6px; letter-spacing: -1px; }
+    .problem-card .p-label { font-size: 0.875rem; color: #bbf7d0; line-height: 1.5; }
 
     /* ── HOW IT WORKS ── */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
-    .step { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: box-shadow 0.2s, transform 0.2s; }
-    .step:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .step-num { width: 34px; height: 34px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; color: var(--green-dim); margin-bottom: 16px; }
-    .step h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-    .step p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .how-section { background: var(--bg); }
+    .steps-vertical { display: flex; flex-direction: column; margin-top: 48px; }
+    .step-row { display: grid; grid-template-columns: 60px 1fr; gap: 28px; align-items: start; padding-bottom: 40px; }
+    .step-row:last-child { padding-bottom: 0; }
+    .step-left { display: flex; flex-direction: column; align-items: center; }
+    .step-circle { width: 44px; height: 44px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .step-line { width: 2px; background: var(--green-mid); flex: 1; min-height: 40px; margin-top: 4px; }
+    .step-row:last-child .step-line { display: none; }
+    .step-content { padding-top: 10px; }
+    .step-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .step-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 560px; }
 
     /* ── WHO IT'S FOR ── */
     .who-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .niches { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .niche-tag { background: var(--bg); border: 1px solid var(--border); padding: 9px 18px; border-radius: 8px; font-size: 0.875rem; font-weight: 500; color: var(--muted); }
-    .who-note { margin-top: 28px; padding: 20px 24px; background: var(--green-light); border: 1px solid var(--green-mid); border-radius: 10px; font-size: 0.92rem; color: var(--text); max-width: 580px; }
+    .niche-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-top: 32px; }
+    .niche-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; display: flex; align-items: center; gap: 12px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .niche-card:hover { border-color: var(--green-mid); box-shadow: 0 2px 10px rgba(22,163,74,0.08); }
+    .niche-icon { width: 36px; height: 36px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .niche-icon svg { width: 18px; height: 18px; stroke: var(--green-dim); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .niche-label { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .who-note { margin-top: 28px; padding: 20px 24px; background: var(--green-light); border: 1px solid var(--green-mid); border-radius: 10px; font-size: 0.92rem; color: var(--text); max-width: 620px; }
     .who-note strong { color: var(--green-dim); }
 
-    /* ── OFFER ── */
-    .offer-section { background: var(--bg); }
-    .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-    .offer-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-    .offer-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem; color: var(--muted); }
-    .offer-list li .check { color: var(--green); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
-    .offer-list li strong { color: var(--text); }
-    .offer-card { background: var(--bg2); border: 1.5px solid var(--border); border-radius: 16px; padding: 36px 32px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .offer-card .price-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; }
-    .offer-card .price { font-size: 3rem; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 4px; }
-    .offer-card .price-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
-    .offer-card .btn-primary { display: block; width: 100%; text-align: center; margin-bottom: 14px; }
-    .offer-card .fine-print { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    /* ── PRICING ── */
+    .pricing-section { background: var(--bg); }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .pricing-card { border-radius: 16px; padding: 36px 32px; border: 1.5px solid var(--border); }
+    .pricing-card.featured { background: var(--green); border-color: var(--green); }
+    .pricing-card .card-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .pricing-card:not(.featured) .card-label { color: var(--green); }
+    .pricing-card.featured .card-label { color: rgba(255,255,255,0.75); }
+    .pricing-card .card-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+    .pricing-card:not(.featured) .card-title { color: var(--text); }
+    .pricing-card.featured .card-title { color: #fff; }
+    .pricing-card .card-price { font-size: 2.6rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; margin-bottom: 6px; }
+    .pricing-card:not(.featured) .card-price { color: var(--text); }
+    .pricing-card.featured .card-price { color: #fff; }
+    .pricing-card .card-sub { font-size: 0.85rem; margin-bottom: 28px; }
+    .pricing-card:not(.featured) .card-sub { color: var(--muted); }
+    .pricing-card.featured .card-sub { color: rgba(255,255,255,0.75); }
+    .pricing-card .card-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .pricing-card .card-list li { display: flex; gap: 10px; font-size: 0.9rem; align-items: flex-start; }
+    .pricing-card:not(.featured) .card-list li { color: var(--muted); }
+    .pricing-card.featured .card-list li { color: rgba(255,255,255,0.85); }
+    .pricing-card .card-list li .ck { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+    .pricing-card:not(.featured) .card-list li .ck { color: var(--green); }
+    .pricing-card.featured .card-list li .ck { color: var(--green-light); }
+    .pricing-card:not(.featured) .card-list li strong { color: var(--text); }
+    .pricing-card.featured .card-list li strong { color: #fff; }
+    .pricing-note { margin-top: 22px; padding: 18px 22px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .pricing-note strong { color: var(--text); }
 
-    /* ── CTA BANNER ── */
-    .cta-banner { background: var(--text); padding: 100px 40px; text-align: center; }
-    .cta-banner .section-inner { max-width: 600px; }
-    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.5px; color: #fff; margin-bottom: 14px; }
-    .cta-banner h2 span { color: var(--green); }
-    .cta-banner p { color: #94a3b8; margin-bottom: 36px; font-size: 1rem; }
+    /* ── CTA ── */
+    .cta-section { background: var(--text); padding: 96px 40px; text-align: center; }
+    .cta-inner { max-width: 580px; margin: 0 auto; }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -1px; color: #fff; margin-bottom: 14px; }
+    .cta-section h2 span { color: #4ade80; }
+    .cta-section p { color: #94a3b8; margin-bottom: 36px; font-size: 1rem; }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--border); padding: 28px 40px; background: var(--bg); }
+    footer { border-top: 1px solid var(--border); padding: 28px 40px; }
     .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.2s; }
@@ -113,14 +140,20 @@
     .footer-copy { font-size: 0.8rem; color: var(--muted); }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .hero { padding: 60px 20px 48px; }
-      section { padding: 60px 20px; }
-      .offer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 60px 20px 64px; }
+      section { padding: 64px 20px; }
+      .problem-section { padding: 64px 20px; }
+      .cta-section { padding: 72px 20px; }
       footer { padding: 24px 20px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      .niche-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     }
   </style>
 </head>
@@ -130,16 +163,17 @@
   <header>
     <nav>
       <a href="index.html" class="logo">
-        <!-- CycleLead Icon: circular loop arrow in green rounded square -->
-        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="34" height="34" rx="9" fill="#16a34a"/>
-          <path d="M24 13C22.5 10.4 19.9 8.7 17 8.7C12.4 8.7 8.7 12.4 8.7 17C8.7 21.6 12.4 25.3 17 25.3C21.6 25.3 25.3 21.6 25.3 17" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M21.5 8.5L25.5 12.5L21 13.5" fill="white"/>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="13.5" stroke="#16a34a" stroke-width="1.8"/>
+          <path d="M8.5 15 C8.5 10.5 11.5 8 15 8 C18.5 8 21.5 10.5 21.5 15 C21.5 19.5 18.5 22 15 22" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <circle cx="15" cy="22" r="2.2" fill="#16a34a"/>
+          <path d="M11 15 C11 12 12.8 10.5 15 10.5 C17.2 10.5 19 12 19 15" stroke="#86efac" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
         </svg>
         CycleLead
       </a>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
         <a href="#who">Who It's For</a>
         <a href="about.html">About</a>
         <a href="mailto:kyle@cyclelead.com" class="nav-cta">Get Started</a>
@@ -148,10 +182,9 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" style="padding-bottom: 80px;">
-    <div class="hero-badge">100% Performance-Based</div>
+  <section class="hero" style="padding-bottom: 88px;">
     <h1>Your Old Customer List<br/>Is a <span>Hidden Revenue Stream</span></h1>
-    <p>CycleLead turns your dormant contacts into booked appointments — using plain-text emails that actually get read. You pay nothing until we close revenue for you.</p>
+    <p>CycleLead turns your dormant contacts into booked appointments using plain-text emails that read like a personal note — not a marketing blast. You pay nothing until we close revenue for you.</p>
     <div class="hero-buttons">
       <a href="mailto:kyle@cyclelead.com" class="btn-primary">Get a Free List Audit</a>
       <a href="#how-it-works" class="btn-secondary">See How It Works</a>
@@ -159,102 +192,206 @@
   </section>
 
   <!-- PROBLEM -->
-  <section class="problem-strip">
-    <div class="section-inner">
-      <p class="section-label">The Problem</p>
-      <h2 class="section-title">You Already Have the Leads.<br/>They're Just Sitting There.</h2>
-      <p class="section-sub">Most small businesses are sitting on hundreds — sometimes thousands — of past customers and unconverted inquiries that went cold. No one followed up. That's money left on the table every single month.</p>
+  <section class="problem-section">
+    <div class="problem-inner">
+      <div class="problem-left">
+        <p class="section-label">The Problem</p>
+        <h2>You're Already Sitting<br/>on the Leads You Need</h2>
+        <p>Most small businesses spend money chasing new customers while a list of people who already know them sits completely untouched. That list isn't dead — those people just haven't heard from you.</p>
+      </div>
+      <div class="problem-right">
+        <div class="problem-card">
+          <div class="p-num">80%</div>
+          <div class="p-label">of small businesses have never sent a single follow-up to their old customer list</div>
+        </div>
+        <div class="problem-card">
+          <div class="p-num">5–7×</div>
+          <div class="p-label">more expensive to acquire a new customer than to re-engage an existing one</div>
+        </div>
+        <div class="problem-card">
+          <div class="p-num">$0</div>
+          <div class="p-label">is what it costs to try CycleLead — we only collect after we've closed revenue for you</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how-it-works">
+  <section class="how-section" id="how-it-works">
     <div class="section-inner">
       <p class="section-label">How It Works</p>
-      <h2 class="section-title">Simple. Lean. Effective.</h2>
-      <p class="section-sub">Three steps from your old spreadsheet to a new booking on your calendar.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Hand Us Your List</h3>
-          <p>Export your old contacts from whatever system they live in — spreadsheet, CRM, booking software, even a notes file. We handle everything from there.</p>
+      <h2 class="section-title">From old spreadsheet to<br/>new booking in four steps</h2>
+      <div class="steps-vertical">
+        <div class="step-row">
+          <div class="step-left"><div class="step-circle">01</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h3>You hand us your list</h3>
+            <p>Export your old contacts from wherever they live — spreadsheet, CRM, booking software, even a notes file. We accept any format and handle everything from there.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>We Clean &amp; Craft</h3>
-          <p>We run every email through professional verification software to remove dead addresses, then write a short, personal campaign in your voice — no corporate blasts.</p>
+        <div class="step-row">
+          <div class="step-left"><div class="step-circle">02</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h3>We clean and verify every address</h3>
+            <p>We run your entire list through NeverBounce to remove dead, invalid, and bounced addresses. You pay the verification cost at $8 per 1,000 emails — passed through at cost, zero markup — plus a flat $25 to set up your dedicated sending domain.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>You Get Bookings</h3>
-          <p>Warm replies come directly to you. We track every lead, and at the end of the month you pay us a percentage of what actually closed.</p>
+        <div class="step-row">
+          <div class="step-left"><div class="step-circle">03</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h3>We write and send the campaign</h3>
+            <p>We segment your list and write a short, personal email sequence in your voice — no corporate blasts, no HTML templates. Emails read like a note from you personally, which is exactly why they get responses.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <h3>You Pay on Results</h3>
-          <p>No retainers. No setup fees. No monthly contracts. If we don't recover revenue for you, you owe us nothing. That's the only model we operate on.</p>
+        <div class="step-row">
+          <div class="step-left"><div class="step-circle">04</div></div>
+          <div class="step-content">
+            <h3>You get bookings — we collect our share</h3>
+            <p>Hot replies come straight to your inbox. We track every lead, and at the end of the month we review closed appointments together. You pay 15% of what actually closed. Not a penny more, not a penny before.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- WHO IT'S FOR -->
-  <section id="who" class="who-section">
+  <section class="who-section" id="who">
     <div class="section-inner">
       <p class="section-label">Who It's For</p>
       <h2 class="section-title">Built for Local Service Businesses</h2>
-      <p class="section-sub">If your business runs on appointments and you've been operating for more than a year, you have a list worth reactivating.</p>
-      <div class="niches">
-        <div class="niche-tag">🦷 Dental Offices</div>
-        <div class="niche-tag">❄️ HVAC Companies</div>
-        <div class="niche-tag">🏠 Roofing Contractors</div>
-        <div class="niche-tag">🔧 Plumbers</div>
-        <div class="niche-tag">💆 MedSpas</div>
-        <div class="niche-tag">💪 Boutique Gyms</div>
-        <div class="niche-tag">🐾 Veterinary Clinics</div>
-        <div class="niche-tag">👁️ Optometrists</div>
-        <div class="niche-tag">🏡 Home Services</div>
-        <div class="niche-tag">+ More</div>
+      <p style="color: var(--muted); max-width: 520px; font-size: 1rem;">If your business runs on appointments and you've been operating for more than a year, you have a list worth reactivating.</p>
+      <div class="niche-grid">
+
+        <!-- Dental -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 7.5 3.5 6.5 5.5C5.5 4.5 4 4 3 5C1.5 6.5 2 9 3 11C4 13 4 15 4.5 17C5 19 6 22 8 22C9.5 22 10 20.5 12 20.5C14 20.5 14.5 22 16 22C18 22 19 19 19.5 17C20 15 20 13 21 11C22 9 22.5 6.5 21 5C20 4 18.5 4.5 17.5 5.5C16.5 3.5 14.5 2 12 2Z"/></svg>
+          </div>
+          <span class="niche-label">Dental Offices</span>
+        </div>
+
+        <!-- HVAC -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <span class="niche-label">HVAC Companies</span>
+        </div>
+
+        <!-- Roofing -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12"/><path d="M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+          </div>
+          <span class="niche-label">Roofing Contractors</span>
+        </div>
+
+        <!-- Plumbers -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M3 16l9-9"/><circle cx="5" cy="19" r="3"/></svg>
+          </div>
+          <span class="niche-label">Plumbers</span>
+        </div>
+
+        <!-- MedSpas -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <span class="niche-label">MedSpas</span>
+        </div>
+
+        <!-- Gyms -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M6 6v12M18 6v12"/><path d="M3 9v6M21 9v6"/><path d="M6 12h12"/></svg>
+          </div>
+          <span class="niche-label">Boutique Gyms</span>
+        </div>
+
+        <!-- Vet -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM16 9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM10 5c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM7.5 14c0 0 1-4 4.5-4s4.5 4 4.5 4c0 2.5-1.5 6-4.5 6S7.5 16.5 7.5 14z"/></svg>
+          </div>
+          <span class="niche-label">Veterinary Clinics</span>
+        </div>
+
+        <!-- Optometrists -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 12S5.5 5 12 5s10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <span class="niche-label">Optometrists</span>
+        </div>
+
+        <!-- Home Services -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12"/><path d="M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/><rect x="9" y="14" width="6" height="7" rx="0.5"/></svg>
+          </div>
+          <span class="niche-label">Home Services</span>
+        </div>
+
+        <!-- More -->
+        <div class="niche-card">
+          <div class="niche-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+          </div>
+          <span class="niche-label">And More</span>
+        </div>
+
       </div>
       <div class="who-note">
-        <strong>Good fit if:</strong> You have at least 500 old contacts, you run on appointments or recurring service, and you haven't reached out to your old list in the last 6–12 months.
+        <strong>Good fit if:</strong> You have at least 500 old contacts, your business runs on appointments or recurring service, and you haven't reached out to your old list in the last 6–12 months.
       </div>
     </div>
   </section>
 
-  <!-- OFFER -->
-  <section class="offer-section">
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
     <div class="section-inner">
-      <div class="offer-grid">
-        <div>
-          <p class="section-label">The Offer</p>
-          <h2 class="section-title">Zero Risk.<br/>Real Revenue.</h2>
-          <p class="section-sub">Here's exactly what you get when you work with CycleLead.</p>
-          <ul class="offer-list">
-            <li><span class="check">✓</span> <span><strong>Full list cleaning</strong> — we scrub every address before a single email goes out</span></li>
-            <li><span class="check">✓</span> <span><strong>Custom email copy</strong> — written in your voice, not ours</span></li>
-            <li><span class="check">✓</span> <span><strong>Campaign management</strong> — we handle setup, scheduling, and daily monitoring</span></li>
-            <li><span class="check">✓</span> <span><strong>Lead forwarding</strong> — every hot reply lands in your inbox immediately</span></li>
-            <li><span class="check">✓</span> <span><strong>End-of-month audit</strong> — full transparency on what closed</span></li>
-            <li><span class="check">✓</span> <span><strong>$0 upfront</strong> — our fee is a percentage of what we close for you</span></li>
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple. Transparent. Low-Risk.</h2>
+      <p style="color: var(--muted); max-width: 520px; font-size: 1rem;">Two small upfront costs to cover our hard expenses — then everything else is purely on results.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="card-label">Upfront</div>
+          <div class="card-title">Setup & Cleaning</div>
+          <div class="card-price">$8 <span style="font-size:1rem; font-weight:600; color:var(--muted);">/ 1k emails</span></div>
+          <div class="card-sub">+ $25 flat infrastructure fee</div>
+          <ul class="card-list">
+            <li><span class="ck">✓</span><span><strong>NeverBounce list cleaning</strong> — passed through at cost, zero markup</span></li>
+            <li><span class="ck">✓</span><span><strong>Dedicated sending domain</strong> — registered and configured for your campaign</span></li>
+            <li><span class="ck">✓</span><span><strong>Full DNS authentication</strong> — SPF, DKIM, and DMARC set up properly</span></li>
+            <li><span class="ck">✓</span><span>Example: a 5,000-contact list costs <strong>$65 upfront total</strong></span></li>
           </ul>
         </div>
-        <div class="offer-card">
-          <div class="price-label">Our Fee</div>
-          <div class="price">15%</div>
-          <div class="price-sub">of closed revenue only. $0 upfront.</div>
-          <a href="mailto:kyle@cyclelead.com" class="btn-primary">Get a Free List Audit</a>
-          <p class="fine-print">We'll review your list size and tell you honestly whether it's worth running a campaign. No pitch, no pressure.</p>
+        <div class="pricing-card featured">
+          <div class="card-label">Performance</div>
+          <div class="card-title">After Results Only</div>
+          <div class="card-price">15%</div>
+          <div class="card-sub">of closed revenue — paid after appointments close</div>
+          <ul class="card-list">
+            <li><span class="ck">✓</span><span><strong>Full campaign management</strong> — copy, scheduling, daily monitoring</span></li>
+            <li><span class="ck">✓</span><span><strong>Lead forwarding</strong> — every hot reply sent directly to you</span></li>
+            <li><span class="ck">✓</span><span><strong>End-of-month audit</strong> — we review closed appointments together</span></li>
+            <li><span class="ck">✓</span><span><strong>No retainer, no monthly fee</strong> — we only win when you win</span></li>
+          </ul>
         </div>
+      </div>
+      <div class="pricing-note">
+        <strong>How the upfront fee works:</strong> The cleaning cost covers the actual NeverBounce software charge ($8/1,000 emails) — passed through at cost with zero markup. The $25 flat fee covers registering and configuring a dedicated sending domain for your campaign, which protects your main domain from deliverability issues. No hidden fees, no surprises.
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="section-inner">
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
       <h2>Ready to find out what your<br/><span>old list is worth?</span></h2>
-      <p>Send us a quick email. We'll take a look at your list size and give you an honest read on what we think is recoverable — before you commit to anything.</p>
+      <p>Send us a quick email. We'll review your list size and tell you honestly what we think is recoverable — before you commit to anything.</p>
       <a href="mailto:kyle@cyclelead.com" class="btn-primary">Email Us — kyle@cyclelead.com</a>
     </div>
   </section>
@@ -263,12 +400,18 @@
   <footer>
     <div class="footer-inner">
       <a href="index.html" class="logo" style="font-size:1rem;">
-        <svg width="26" height="26" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#16a34a"/><path d="M24 13C22.5 10.4 19.9 8.7 17 8.7C12.4 8.7 8.7 12.4 8.7 17C8.7 21.6 12.4 25.3 17 25.3C21.6 25.3 25.3 21.6 25.3 17" stroke="white" stroke-width="2.4" stroke-linecap="round"/><path d="M21.5 8.5L25.5 12.5L21 13.5" fill="white"/></svg>
+        <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="13.5" stroke="#16a34a" stroke-width="1.8"/>
+          <path d="M8.5 15 C8.5 10.5 11.5 8 15 8 C18.5 8 21.5 10.5 21.5 15 C21.5 19.5 18.5 22 15 22" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <circle cx="15" cy="22" r="2.2" fill="#16a34a"/>
+          <path d="M11 15 C11 12 12.8 10.5 15 10.5 C17.2 10.5 19 12 19 15" stroke="#86efac" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+        </svg>
         CycleLead
       </a>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
         <a href="about.html">About</a>
         <a href="mailto:kyle@cyclelead.com">Contact</a>
       </div>
